@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulelah Al-Amoudi - AI Entrepreneur & Operations Leader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0c1e3e 0%, #1a237e 100%);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        .name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #64b5f6, #90caf9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            color: #90caf9;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #e3f2fd;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #64b5f6;
+        }
+
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #64b5f6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(100, 181, 246, 0.3);
+        }
+
+        /* Content Sections */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #64b5f6;
+        }
+
+        /* Summary Section */
+        .summary {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            color: #e3f2fd;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid #64b5f6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(100, 181, 246, 0.1);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .exp-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #64b5f6;
+        }
+
+        .exp-company {
+            font-size: 1.1rem;
+            color: #90caf9;
+            font-weight: 500;
+        }
+
+        .exp-date {
+            font-size: 0.9rem;
+            color: #bbdefb;
+            margin-left: auto;
+        }
+
+        .exp-location {
+            font-size: 0.9rem;
+            color: #90caf9;
+        }
+
+        .exp-description {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .exp-description li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+            color: #e3f2fd;
+        }
+
+        .exp-description li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #64b5f6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #64b5f6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-item {
+            display: inline-block;
+            background: rgba(100, 181, 246, 0.2);
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: #64b5f6;
+            transform: scale(1.05);
+        }
+
+        /* Education & Certifications */
+        .edu-cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .edu-item, .cert-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .edu-item:hover, .cert-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .edu-item h3, .cert-item h3 {
+            color: #64b5f6;
+            margin-bottom: 10px;
+        }
+
+        .cert-date {
+            color: #90caf9;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(100, 181, 246, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .exp-date {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <h1 class="name">Abdulelah Al-Amoudi</h1>
+            <p class="title">AI Entrepreneur & Operations Leader | Founder of Muwathafi Agency</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+966546654007">+966 546 654 007</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:A_alamoudi92@Hotmail.com">A_alamoudi92@Hotmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/abdulelah-alamoudi" target="_blank">LinkedIn Profile</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Jeddah, Saudi Arabia</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav">
+            <div class="nav-btn active" onclick="showSection('summary')">Summary</div>
+            <div class="nav-btn" onclick="showSection('experience')">Experience</div>
+            <div class="nav-btn" onclick="showSection('skills')">Skills</div>
+            <div class="nav-btn" onclick="showSection('education')">Education</div>
+        </div>
+
+        <!-- Summary Section -->
+        <div id="summary" class="section active">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary">
+                <p class="summary-text">
+                    Innovative AI entrepreneur and operations leader with over 11 years of experience spanning logistics management, 
+                    supply chain optimization, and digital transformation. Founded Muwathafi Agency in May 2025, developing 
+                    AI-powered automation solutions for healthcare and business sectors. Currently building the Muwathafi Dental 
+                    Clinic Automation System, designed to reduce administrative workload by 15-20 hours per week while increasing 
+                    operational capacity by 25%. Previously achieved consistent KPIs of 96%+ across multiple organizations, 
+                    reduced operational costs by 15% through strategic negotiation and improved efficiency by 20% via process 
+                    optimization and digital solutions. Fluent in Arabic and English, committed to driving technological innovation 
+                    aligned with Vision 2030 objectives.
+                </p>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div id="experience" class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">Founder & CEO</div>
+                        <div class="exp-company">Muwathafi Agency</div>
+                        <div class="exp-location">Jeddah, Saudi Arabia</div>
+                    </div>
+                    <div class="exp-date">05/2025 - Present</div>
+                </div>
+                <ul class="exp-description">
+                    <li>Founded Muwathafi Agency, specializing in AI-powered automation solutions for healthcare and business</li>
+                    <li>Developing Dental Clinic Automation System with WhatsApp integration and voice automation</li>
+                    <li>Designing system to reduce admin workload by 15-20 hours/week with projected 214% first-year ROI</li>
+                    <li>Creating AI solutions using Unifonic API, Vapi.ai, ElevenLabs for text-to-voice, and LLMs</li>
+                    <li>Building data-driven analytics for healthcare operational insights</li>
+                    <li>Aligning with Vision 2030 healthcare initiatives and Saudi market requirements</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">AI Research & Development</div>
+                        <div class="exp-company">Self-directed Study</div>
+                        <div class="exp-location">Jeddah, Saudi Arabia</div>
+                    </div>
+                    <div class="exp-date">01/2025 - 04/2025</div>
+                </div>
+                <ul class="exp-description">
+                    <li>Conducted intensive study of AI technologies, automation systems, and healthcare integration</li>
+                    <li>Completed SDAIA AI certification programs in Fundamentals of AI and Advanced Applications</li>
+                    <li>Developed prototype automation workflows using n8n Pro and Google Sheets</li>
+                    <li>Researched healthcare technology implementation and Saudi regulatory requirements</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">Head of Operations & Customer Service</div>
+                        <div class="exp-company">DB Schenker</div>
+                        <div class="exp-location">Jeddah, Saudi Arabia</div>
+                    </div>
+                    <div class="exp-date">05/2023 - 12/2024</div>
+                </div>
+                <ul class="exp-description">
+                    <li>Managed ocean freight P&L for branch, ensuring financial efficiency and accountability</li>
+                    <li>Managed cross-functional teams of 10 professionals, reducing delays by 25%</li>
+                    <li>Managed budgets exceeding $5M, reducing costs by 10% through process optimization</li>
+                    <li>Led digital transformation initiatives, improving data accuracy by 30% through ERP upgrades</li>
+                    <li>Achieved 90% customer satisfaction scores</li>
+                    <li>Implemented digitalization for continuous improvement</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <div class="exp-title">Logistics Manager</div>
+                        <div class="exp-company">LG Electronics</div>
+                        <div class="exp-location">Riyadh, Saudi Arabia</div>
+                    </div>
+                    <div class="exp-date">10/2022 - 05/2023</div>
+                </div>
+                <ul class="exp-description">
+                    <li>Oversaw purchase and distribution operations, achieving 85%+ airfreight customs clearance within one day</li>
+                    <li>Reduced logistical costs by 12% through optimization</li>
+                    <li>Applied pre-clearance to 70% of sea freight consignments</li>
+                    <li>Reported VAT statements with 98% accuracy</li>
+                    <li>Obtained SABER certification without business disruption</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills" class="section">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> AI & Technology</h3>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">LLM Implementation</div>
+                    <div class="skill-item">WhatsApp API</div>
+                    <div class="skill-item">Voice Automation</div>
+                    <div class="skill-item">Text-to-Speech</div>
+                    <div class="skill-item">Workflow Automation</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-bar"></i> Analysis & Tools</h3>
+                    <div class="skill-item">BI Software</div>
+                    <div class="skill-item">Excel</div>
+                    <div class="skill-item">Data Visualization</div>
+                    <div class="skill-item">n8n Pro</div>
+                    <div class="skill-item">Workflow Automation</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Process Management</h3>
+                    <div class="skill-item">Six Sigma</div>
+                    <div class="skill-item">Lean Methodology</div>
+                    <div class="skill-item">SOP Development</div>
+                    <div class="skill-item">KPI Tracking</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-users"></i> Leadership</h3>
+                    <div class="skill-item">Cross-functional Team Leadership</div>
+                    <div class="skill-item">Change Management</div>
+                    <div class="skill-item">Stakeholder Engagement</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-truck"></i> Operations</h3>
+                    <div class="skill-item">Supply Chain Management</div>
+                    <div class="skill-item">Logistics</div>
+                    <div class="skill-item">Warehouse Management</div>
+                    <div class="skill-item">Inventory Control</div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe"></i> Languages</h3>
+                    <div class="skill-item">Arabic (Native)</div>
+                    <div class="skill-item">English (Fluent)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div id="education" class="section">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="edu-cert-grid">
+                <div class="edu-item">
+                    <h3>Bachelor of Business Administration</h3>
+                    <p>King Abdul-Aziz University</p>
+                </div>
+                
+                <div class="cert-item">
+                    <h3>AI Concepts and Advanced Applications</h3>
+                    <p>SDAIA</p>
+                    <p class="cert-date">May 9, 2025</p>
+                </div>
+                
+                <div class="cert-item">
+                    <h3>Fundamentals of AI</h3>
+                    <p>SDAIA</p>
+                    <p class="cert-date">May 11, 2025</p>
+                </div>
+                
+                <div class="cert-item">
+                    <h3>Certified Supply Chain Professional</h3>
+                    <p class="cert-date">2024</p>
+                </div>
+                
+                <div class="cert-item">
+                    <h3>Warehouse & Distribution Operations</h3>
+                    <p class="cert-date">2018</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>Let's Connect</h3>
+            <p>Ready to discuss AI solutions and operational excellence?</p>
+            <a href="mailto:A_alamoudi92@Hotmail.com" class="cta-button">
+                <i class="fas fa-envelope"></i> Contact Me
+            </a>
+            <a href="https://linkedin.com/in/abdulelah-alamoudi" target="_blank" class="cta-button">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Remove active class from all nav buttons
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked nav button
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling and animations on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            header.style.transform = `translateY(${rate}px)`;
+        });
+
+        // Add hover effects for experience items
+        document.querySelectorAll('.experience-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(100, 181, 246, 0.1)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(255, 255, 255, 0.05)';
+            });
+        });
+
+        // Add click effect to profile image
+        document.querySelector('.profile-img').addEventListener('click', function() {
+            this.style.animation = 'pulse 0.6s ease-in-out';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 600);
+        });
+
+        // Add CSS keyframes for pulse animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
